@@ -1,0 +1,165 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js sr" ng-app="secondarySalesApp">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title page-title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(app) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/select2/select2.css" />
+    <link rel="stylesheet" href="bower_components/angular-toggle-switch/angular-toggle-switch.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-tooltips/dist/angular-tooltips.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/addButton.css">
+    <link rel="stylesheet" href="styles/myButton.css">
+    <link rel="stylesheet" href="styles/angucomplete.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/slick.css">
+    <link rel="stylesheet" href="styles/styleNew.css">
+    <!--     <link rel="stylesheet" href="styles/bootstrap-extend.css">-->
+    <!--      <link rel="stylesheet" href="styles/LeftsideMenu.css">-->
+    <!--    <link rel="stylesheet" href="styles/StyleSheet.css">-->
+
+
+
+
+    <!--------------------Toaster 
+	<link rel="stylesheet" href="styles/toaster.css">
+<!--	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css"/>-->
+    <!--	<link rel="stylesheet" href="bower_components/angular-tooltips/dist/angular-tooltips.min.css"  type="text/css" />-->
+    <!--------------------Toaster --------------------------------->
+    <!-- endbuild -->
+
+    <!-- endbuild -->
+
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="styles/NewUI/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="styles/NewUI/NewUI.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="styles/NewUI/skin-blue.css">
+    <link rel="stylesheet" href="styles/toaster.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ng-include="'partials/navbar1'" ng-style="style"></div>
+    <div class="" ng-view="" ng-if="showMe" ng-style="style"></div>
+    <!--r--	<div class="container" ng-view="" ng-if="showMe" ng-style="style"></div>--r-->
+
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- build:js(app) scripts/vendor.js -->
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/select2/select2.js"></script>
+    <script src="bower_components/angular-ui-select2/src/select2.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
+    <script src="bower_components/angular-ui-map/ui-map.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-toggle-switch/angular-toggle-switch.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-tooltips/dist/angular-tooltips.min.js"></script>
+    <script src="bower_components/angular-input-modified/src/angular-input-modified.js"></script>
+    <script src="bower_components/angular-form-validation/src/angular-form-validation.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/baseurl.js"></script>
+    <script src="scripts/services/angucomplete.js"></script>
+    <script src="scripts/services/angucomplete.js"></script>
+    <script src="scripts/services/NewUI/angular-breadcrumbs.min.js"></script>
+    <script src="scripts/services/xlsx.core.min.js"></script>
+    <script src="scripts/services/scrollreveal.min.js"></script>
+    <script src="scripts/services/jquery.leanModal.min.js"></script>
+    <script src="scripts/services/jquery.validate.min.js"></script>
+    <script src="scripts/services/slick.min.js"></script>
+    <script src="scripts/services/toaster.js"></script>
+    <script src="scripts/services/JsBarcode.all.js"></script>
+
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/navbar.js"></script>
+    <script src="scripts/directives/cb-grid.js"></script>
+    <script src="scripts/directives/cb-button-delete.js"></script>
+    <script src="scripts/directives/cb-button-update.js"></script>
+    <script src="scripts/directives/cb-form-submit.js"></script>
+    <script src="scripts/directives/dirPaginations.js"></script>
+    <script src="scripts/directives/ng-page-title.js"></script>
+    <script src="scripts/directives/angular-confirm.js"></script>
+   
+
+    <!-- Controllers -->
+   
+    <script src="scripts/controllers/angular-file-upload.js"></script>
+    <script src="scripts/controllers/angular-idle.js"></script>
+    <script src="scripts/controllers/customers.js"></script>
+    <script src="scripts/controllers/import-employees.js"></script>
+     <script src="scripts/controllers/users.js"></script>
+    <script src="scripts/controllers/users-create.js"></script>
+    <script src="scripts/controllers/users-edit.js"></script>
+    <script src="scripts/controllers/employees.js"></script>
+    <script src="scripts/controllers/employees-create.js"></script>
+    <script src="scripts/controllers/employees-edit.js"></script>
+    
+    <!-- endbuild -->
+
+    <script src="//maps.googleapis.com/maps/api/js?libraries=visualization&key=AIzaSyD3zq6e-BeWSf70mYQtsjfAOD8m6C_NQNc"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script src="scripts/services/markerwithlabel.js"></script>
+</body>
+
+</html>
