@@ -1,0 +1,1640 @@
+/* File Created: February 5, 2015 */
+
+body
+{
+    font-family: Arial, Helvetica, sans;
+    color: #222222;
+    size: 13px;
+    line-height: 17px;
+}
+.popup
+{
+    background: #f9f9f9;
+    border: 1px solid #999999;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    bottom: 20px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.mask
+{
+     background: #c0c0c0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#add-item
+{
+    background: url("../images/add-item.png") no-repeat scroll 0 0 #f2f2f2;
+    border: 1px solid #d7d7d7;
+    color: #222222;
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    margin: 5px 0px 5px;
+    padding: 0 25px 0 125px;
+    text-decoration: none;
+}
+
+.btnClass
+{
+    background-color: #eeeeee;
+    border: medium none;
+    color: #666666;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 100%;
+    margin-right: 10px;
+    padding: 12px 26px;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+}
+
+
+
+
+#primary-options
+{
+    background: none repeat scroll 0 0 white;
+    bottom: 0;
+    height: 70px;
+    left: auto;
+    line-height: 70px;
+    padding: 0 20px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 100%;
+}
+.btnClass.primaryclass
+{
+/*    background-color: #74848c;*/
+    background-color:#3cc3f0;
+    color: white;
+}
+#primary-options a
+{
+    text-decoration: none;
+}
+
+
+.options.other-properties
+{
+    border-left: 2px solid white;
+    height: 200px;
+    right: 0;
+    bottom: 30px;
+    left: auto;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 210px;
+}
+
+.options.other-properties button
+{
+    width: 190px;
+    margin: 5px 0;
+}
+
+
+
+.colorBrandWith
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#divColorAndDefectPopUp
+{
+    position: absolute;
+    right: 210px;
+    height: 483px;
+    max-height: 483px;
+    width: 700px;
+    bottom: 85px;
+    top: auto;
+    padding: 8px 28px 5px 28px;
+}
+
+#divBooking .dropdown
+{
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 2px 2px 10px 1px rgba(180, 180, 180, 0.75);
+    height: auto;
+    margin-left: 12px;
+    max-height: 150px;
+    overflow: auto;
+    position: absolute;
+    top: 45px;
+    width: 350px;
+    z-index: 10001;
+}
+.Brandfooter
+{
+    background: none repeat scroll 0 0 white;
+    bottom: 0;
+    height: 50px;
+    left: auto;
+    padding: 0 20px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.mask2
+{
+    background: rgba(180, 180, 180, 0.3);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#divColorAndDefectPopUp .launcher
+{
+    bottom: 12px;
+    position: absolute;
+    right: -200px;
+    z-index: 10000;
+}
+#divColorAndDefectPopUp .launcher .btnClass
+{
+    background: none repeat scroll 0 0 white;
+    box-shadow: 3px 2px 3px 1px rgba(180, 180, 180, 0.75);
+}
+.dropdown.extended
+{
+    overflow: visible;
+}
+
+.btnColorsClass, .btnBrandClass, .btnDefectsClass, .btnExtraServiceClass
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 5px !important;
+}
+
+#divBrands, #divColors, #divDefects
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+#divBrands li, #divColors li, #divDefects li :not(dropdown-menu li)
+{
+    float: left;
+    overflow: hidden;
+}
+#divBrands li label.radio, #divBrands li label.checkbox, #divBrands li label.group, #divColors li label.radio, #divColors li label.checkbox, #divColors li label.group, #divDefects li label.radio, #divDefects li label.checkbox, #divDefects li label.group
+{
+    float: left;
+    position: relative;
+}
+#divBrands li label.radio input, #divBrands li label.checkbox input, #divBrands li label.group input, #divColors li label.radio input, #divColors li label.checkbox input, #divColors li label.group input, #divDefects li label.radio input, #divDefects li label.checkbox input, #divDefects li label.group input
+{
+    display: none;
+}
+#divBrands li label.radio input:checked + span, #divBrands li label.checkbox input:checked + span, #divBrands li label.group input:checked + span, #divColors li label.radio input:checked + span, #divColors li label.checkbox input:checked + span, #divColors li label.group input:checked + span, #divDefects li label.radio input:checked + span, #divDefects li label.checkbox input:checked + span, #divDefects li label.group input:checked + span
+{
+    background-color: #74848c;
+    color: white;
+}
+#divBrands li label.radio > span, #divBrands li label.checkbox > span, #divBrands li label.group > span, #divColors li label.radio > span, #divColors li label.checkbox > span, #divColors li label.group > span, #divDefects li label.radio > span, #divDefects li label.checkbox > span, #divDefects li label.group > span
+{
+    width: 150px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+    margin-right: 10px;
+    padding-right: 3px;
+    margin-bottom: 10px;
+    border: 1px #eeeeee solid;
+    min-height: 40px;
+    min-width: 75px;
+    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #888888;
+    line-height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#divBrands li label.radio > span .color, #divBrands li label.checkbox > span .color, #divBrands li label.group > span .color, #divColors li label.radio > span .color, #divColors li label.checkbox > span .color, #divColors li label.group > span .color, #divDefects li label.radio > span .color, #divDefects li label.checkbox > span .color, #divDefects li label.group > span .color
+{
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    margin: 8px 5px 0 10px;
+    margin-right: 5px !important;
+    border: 1px #222222 solid;
+}
+#divBrands li:last-child label.checkbox span, #divColors li:last-child label.checkbox span, #divDefects li:last-child label.checkbox span
+{
+    margin-right: 0;
+}
+
+#divColors li :not(dropdown-menu li)
+{
+    float: left;
+    overflow: hidden;
+}
+#divColors li label.radio > span, #divColors li label.checkbox > span, #divColors li label.group > span
+{
+    vertical-align: center;
+    text-align: left;
+}
+
+.rightSide
+{
+    border-left: 2px solid white;
+    bottom: 80px;
+    left: auto;
+    padding-right: 10px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 120px;
+    width: 209px;
+    margin-top: -4px;
+}
+
+#quantity
+{
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+#quantity h4
+{
+    display: none;
+}
+
+#quantity button
+{
+    padding: 5px;
+    height: 40px;
+    margin: -9px 0px 0px;
+    width: 44px;
+}
+#txtQty
+{
+    width: 90px !important;
+    height: 40px !important;
+    font-size: 24px !important;
+/*    border: 1px solid #959595;*/
+    color: #333333;
+    padding: 2px 5px;
+    text-align: center;
+    font-weight: bold !important;
+}
+
+#txtGarmentRate
+{
+    font-size: 24px !important;
+/*    border: 1px solid #959595;*/
+    border:1px solid #e6e6e6;
+    color: #333333;
+    padding: 2px 5px;
+    text-align: center;
+}
+
+.rightSide2
+{
+    background-color: #8d99a0;
+    color: White;
+    min-height: 541px;
+}
+
+.quickdate-button
+{
+    background-color: #eeeeee;
+    border: medium none;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+    width: 100%;
+    height: 42px;
+}
+
+.quickdate-button2
+{
+    background-color: #eeeeee;
+    border: medium none;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+    width: 100px;
+    height: 30px;
+    text-align: right;
+}
+
+
+.imgColor
+{
+    opacity: .5;
+}
+
+.imgColor1
+{
+    background-color: #d8dcde;
+    border: 1px solid #8b9a9e;
+}
+
+.imgColor3
+{
+    border: 1px solid #59666a;
+}
+
+.imgColor4
+{
+    border: 1px solid #8b9a9e;
+}
+
+.fontSizeRight
+{
+    font-size: 16px;
+    text-align: right;
+}
+
+#primary-options2
+{
+    background: none repeat scroll 0 0 white;
+    bottom: 0;
+    height: 80px;
+    left: auto;
+    line-height: 80px;
+    padding: 0 20px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: auto;
+    background-color: Gray;
+    width: 100%;
+}
+.footerMargin
+{
+    padding: 0px 0px 0px 5px;
+    font-size: 14px;
+}
+
+
+.divMainService li
+{
+    display: inline-block;
+    overflow: hidden;
+}
+.divMainService li label.radio, .divMainService li label.checkbox, .divMainService li label.group
+{
+    display: inline-block;
+    position: relative;
+}
+.divMainService li label.radio input, .divMainService li label.checkbox input, .divMainService li label.group input
+{
+    display: none;
+}
+.divMainService li label.radio input:checked + span, .divMainService li label.checkbox input:checked + span, .divMainService li label.group input:checked + span
+{
+/*    background-color: #74848c;*/
+    background-color:#3cc3f0;
+    color: white;
+}
+.divMainService li label.radio > span, .divMainService li label.checkbox > span, .divMainService li label.group > span
+{
+    width: 142px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+    margin-right: 10px;
+    margin-top: 3px;
+    border: 1px #eeeeee solid;
+    min-height: 40px;
+    min-width: 75px;
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #888888;
+    line-height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.divMainService li label.radio > span .color, .divMainService li label.checkbox > span .color, .divMainService li label.group > span .color
+{
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    margin: 8px 5px 0 10px;
+    border: 1px #222222 solid;
+}
+.divMainService li:last-child label.checkbox span
+{
+    margin-right: 0;
+}
+
+.divMainService ul
+{
+    padding-left: 0px;
+}
+
+
+
+
+.divGarmentGroup li
+{
+    display: inline-block;
+    overflow: hidden;
+}
+.divGarmentGroup li label.radio, .divGarmentGroup li label.checkbox, .divGarmentGroup li label.group
+{
+    display: inline-block;
+    position: relative;
+}
+.divGarmentGroup li label.radio input, .divGarmentGroup li label.checkbox input, .divGarmentGroup li label.group input
+{
+    display: none;
+}
+.divGarmentGroup li label.radio input:checked + span, .divGarmentGroup li label.checkbox input:checked + span, .divGarmentGroup li label.group input:checked + span
+{
+/*    background-color: #74848c;*/
+/*    background-color:#3cc3f0;*/
+    border-bottom:3px solid #3cc3f0;
+/*    color: white;*/
+    color:#3cc3f0;
+}
+.divGarmentGroup li label.radio > span, .divGarmentGroup li label.checkbox > span, .divGarmentGroup li label.group > span
+{
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: white;
+    margin-right: 10px;
+    margin-bottom: 6px;
+/*    border: 1px #eeeeee solid;*/
+    min-height: 40px;
+    min-width: 75px;
+    display: block;
+    text-align: center;
+/*    text-align:left;*/
+    font-size: 13px;
+    font-weight: bold;
+    color: #888888;
+    line-height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 2px;
+}
+.divGarmentGroup li label.radio > span .color, .divGarmentGroup li label.checkbox > span .color, .divGarmentGroup li label.group > span .color
+{
+    display: inline-block;
+    position: relative;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    margin: 8px 5px 0 10px;
+    border: 1px #222222 solid;
+}
+.divGarmentGroup li:last-child label.checkbox span
+{
+    margin-right: 0;
+}
+
+.divGarmentGroup ul
+{
+    padding-left: 0px;
+}
+
+#divGarments
+{
+    background: white;
+    top: 130px;
+    bottom: 250px;  
+}
+#divGarments ul
+{
+    height: 100%;
+    padding-left: 9px; 
+}
+/*
+#divGarments ul li span 
+{
+ background-position: 8px 5px !important;
+    background-size: 73px 71px !important;
+    color: #333333;
+    height: 87px;
+    line-height: 146px;
+    margin: 10px 9px 0 9px;
+    opacity: 0.9;
+    width: 89px;
+    background-attachment: fixed;
+    padding-left:5px;
+}
+*/
+
+#divGarments ul li span 
+{
+ background-position: 5px 5px !important;
+    background-size: 73px 71px !important;
+    color: #333333;
+    height: 87px;
+    line-height: 146px;
+    margin: 10px 9px 0 9px;
+    opacity: 0.9;
+    width: 89px;
+    background-attachment: fixed;
+    padding-left:5px;
+}
+
+
+
+#divGarments ul li input:checked + span
+{
+    border: none;
+    background-color: #fffff !important;
+    color: White;
+    opacity: .5;  
+}
+
+#divGarments ul li input:checked ~ .GarmentNamestyle2
+{
+     background-color: transparent !important;
+    color: #373737;
+    display: table-cell;
+    height: 54px;
+    line-height: 16px;
+    vertical-align: bottom;
+    white-space: inherit;
+    opacity:1;
+}
+
+#divGarments ul li input + span
+{
+ background-color: white !important;
+ border:  none;
+}
+
+#sub-items
+{
+    bottom: 70px;
+    top: auto;
+    right: 600px;
+    height: 170px;
+}
+
+small
+{
+    color: #4b5358;
+    padding: 0 5px;
+}
+.FooterColor
+{
+    background-color: #f2f2f2;
+    padding: 10px;
+    font-size: 18px;
+    color: #4b5358;
+    font-weight: bold;
+}
+.Garment-Binding, .Service-binding, .Group-binding
+{
+}
+
+
+
+#additionalServices.dropdownExterService ul
+{
+    padding: 0;
+}
+#additionalServices.dropdownExterService ul li
+{
+    clear: both;
+    margin: 0;
+}
+#additionalServices.dropdownExterService ul li input[type="text"]
+{
+    display: inline-block;
+    width: 60px;
+    margin-top: -34px;
+    height: 30px;
+    border: 1px #959595 solid;
+    float: right;
+    text-align: center;
+}
+#additionalServices.dropdownExterService ul li span
+{
+    border: 1px #eeeeee solid;
+    margin-left: 5px;
+    text-align: left;
+    padding: 0 5px 0 15px;
+    width: 200px;
+}
+
+#additionalServices.dropdownExterService ul li span div:first-child {	
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;   
+}
+
+.dropdownExterService
+{
+    overflow: auto;
+    position: absolute;
+}
+
+.BookingTable
+{
+    width: 100%;
+}
+
+.BookingTable > tbody > tr
+{
+    padding: 4px;
+    border-bottom: 1px solid #d0d0d0;
+    border-left: 1px dotted #d0d0d0;
+    border-right: 1px dotted #d0d0d0;
+    border-top: 1px solid #d0d0d0;
+    cursor: pointer;
+    color: #666666;
+}
+.BookingTable > tbody > tr > td
+{
+    line-height: 1.42857;
+    padding: 4px;
+    vertical-align: top;
+    border: none;
+}
+
+.imgStyle
+{
+    margin: -4px 0px -4px -4px;
+    border: 1px solid #d0d0d0;
+}
+.imgtdWidth
+{
+    width: 99px;
+}
+.groupcss
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+.footer6
+{
+    font-size: 16px;
+    font-weight: normal;
+}
+.GridProcess
+{
+    float: right;
+    margin-right: 16px;
+    font-size: 13px;
+    font-weight: bold;
+    width: 100px;
+}
+.DescColor
+{
+    color: #999999;
+    font-size: 16px;
+    font-weight: normal;
+    min-height: 46px;
+}
+.DeleteRow
+{
+    height: 50px;
+    text-align: center;
+    background-color: #f2f4f4;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.EditRow
+{
+    height: 50px;
+    text-align: center;
+    background-color: #f2f4f4;
+    font-size: 14px;
+    padding-top: 12px;
+    border-top: 1px solid white;
+}
+.Style2
+{
+    text-decoration: none !important;
+    color: #666666 !important;
+}
+
+.dropdown2
+{
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 2px 2px 10px 1px rgba(180, 180, 180, 0.75);
+    height: auto;
+    margin-left: 12px;
+    max-height: 150px;
+    overflow: auto;
+    position: absolute;
+    top: 45px;
+    width: 350px;
+    z-index: 10001;
+}
+
+.dropdown2
+{
+    overflow: visible;
+}
+.decrement, .increment
+{
+/*    background-color: #74848c;   */
+    background-color:#3cc3f0;
+    color: White;
+}
+
+/* For slider-------------------------------------------------------------- */
+
+.cslide-slides-master
+{
+    overflow: hidden;
+}
+
+.cslide-slides-master:last-child
+{
+    margin-bottom: 0;
+}
+
+.cslide-slides-container
+{
+    visibility: hidden;
+}
+
+.cslide-slide
+{
+    float: left;
+}
+
+.cslide-slide h2, .cslide-slide p
+{
+    color: #fff;
+}
+
+/* prev next buttons */
+.cslide-prev-next
+{
+    display: none;
+    text-align: right;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cslide-prev, .cslide-next
+{
+    display: inline-block;
+    color: #4b5358;
+    padding-top: 5px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cslide-prev:hover, .cslide-next:hover
+{
+}
+
+.cslide-prev.cslide-disabled:hover, .cslide-next.cslide-disabled:hover
+{
+}
+
+.cslide-disabled
+{
+    opacity: 0.3;
+}
+/*-------------------------------------------------------------- */
+
+.rightButtonGroup
+{
+    right: 10px;
+    bottom: 25px;
+    left: auto;
+    width: 190px;
+    position: absolute;
+    height: 0px;
+}
+.ButtonGroup2
+{
+    bottom: 7px;
+    left: 45%;
+    position: absolute;
+}
+
+.btnAdd
+{
+    text-decoration: none !important;
+    margin-top: 10px !important;
+    font-size: 15px !important;
+}
+.GarmentRate
+{
+    padding-left: 3px;
+}
+
+.footerDetails
+{
+    top: auto;
+    right: auto;
+    bottom: 0px;
+    left: auto;
+}
+.footerColor2
+{
+    background-color: #f2f2f2;   
+    
+}
+
+.textStyle
+{
+    border: 1px solid #d2d2d2;
+    color: #333333;
+    font-size: 16px;
+    height: 31px;
+    padding: 2px 5px;
+    width: 227px;
+}
+.btnClass3
+{
+    background-color: #d2d2d2;
+    border: medium none;
+    color: White;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 9px 34px 8px 34px;
+    text-decoration: none !important;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.errorCss
+{
+    border: 1px solid #800000 !important;
+    background-color: #ffdfef;
+}
+
+.btnClass4
+{
+    background-color: #74848c;
+    border: medium none;
+    color: White;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 9px 34px 8px;
+    text-decoration: none !important;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.textStyle2
+{
+    border: 1px solid #959595;
+    color: #333333;
+    font-size: 16px;
+    height: 31px;
+    padding: 2px 5px;
+    width: 90px;
+    text-align: center;
+}
+.textGreen
+{
+    color: #004000;
+    font-weight: bold;
+    margin-left: 9px;
+    font-size: 12px;
+}
+
+.errorCss2
+{
+    color: #800000;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.textActive
+{
+    border: 1px solid #4cb4ff;
+}
+.btnActive
+{
+    background-color: #4cb4ff;
+}
+.price
+{
+    text-align: right;
+}
+
+/*    */
+
+/* */   
+.uiv2-already-rate-count-btn,
+.uiv2-rate-count-btn {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    float: left;
+    height: 21px;
+    margin-right: 3px;
+    overflow: hidden
+}
+.uiv2-rate-count-btn input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #fff;
+    border-color: -moz-use-text-color #e3e3e3;
+    border-image: none;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+    border-style: none solid;
+    border-width: 0 1px;
+    color: #000;
+    float: left;
+    font: 400 12px/16px Lato, sans-serif;
+    height: 21px;
+    text-align: center;
+    width: 30px
+}
+.clr {
+    clear: both;
+}
+
+.uiv2-qty-label {
+    float: left;
+    width: 24px;
+    color: #999;
+    font: 400 12px/16px Lato, sans-serif;
+    height: 21px;
+    padding: 2px
+}
+.uiv2-qty-label {
+    float: left;
+    width: 24px;
+    color: #999;
+    font: 400 12px/16px Lato, sans-serif;
+    height: 21px;
+    padding: 2px
+}
+.uiv2-search .uiv2-qty-label,
+.uiv2-search .uiv2-rate-count-btn {
+    height: 18px;
+    line-height: 14px
+}
+.SelectedProduct .uiv2-rate-count-btn input[type=text],
+.uiv2-super-content a {
+    color: #333
+}
+
+.uiv2-add-button {
+    background: #fee67c;
+    background: -webkit-gradient(left top, left bottom, color-stop(0, #fee67c), color-stop(100%, #f2cb76));
+    background: -webkit-linear-gradient(top, #fee67c, #f2cb76);
+    background: linear-gradient(180deg, #fee67c 0, #f2cb76);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fee67c', endColorstr='#f2cb76', GradientType=0);
+    font: 400 13px/14px Roboto Slab, serif;
+    color: #414042;
+    float: left;
+    padding: 3px 8px 5px 10px;
+    border: 1px solid #f1e08e;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    width: 29px;
+    text-transform: uppercase
+}
+
+
+
+/*    */
+
+#divGarments ul li label > span.price
+{
+/*    background: none repeat scroll 0 0 #535f64;  */
+/*    background: none repeat scroll 0 0 #3cc3f0;*/
+    border: medium none;
+    bottom: 65px;
+/*    color: white;*/
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    min-height: 20px;
+    min-width: 30px;
+/*    position: absolute;*/
+    right: 2px;
+/*    width: 40px;*/
+     z-index: 10;
+}
+
+.AddfooterDetails
+{
+    top: auto;
+    right: auto;
+    bottom: 8px;
+    left: auto;
+    position: absolute;
+    width: 92%;
+}
+
+#btnCancel:hover
+{
+    color: #666666;
+}
+.activeItem
+{
+    background-color: #428bca !important;
+    border: 2px solid #428bca !important;
+}
+.emptyData
+{
+    font-size: 19px;   
+    color: #a8a8a8;
+    font-weight: bold;  
+    margin-left: 11%;
+    margin-right: 11%;
+}
+.headerCat
+{
+    background-color: #d9edf7 !important;
+    border: 1px solid #d9edf7 !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.QtyLabel
+{
+    text-align: left;
+/*    color: #888888;  */
+    color:#2498f0;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom:4%;
+}
+
+
+
+.prev-next-btn
+{
+/*    background-color: #bfbfbf;*/
+    color:#2894f0;
+    height: 38px;
+    width: 38px;
+}
+.close1
+{
+    float: right;
+    margin-top: 4px;
+    margin-right: -20px;
+    padding: 3px;
+    color: #74848c;
+}
+
+#btnClosePopUp:hover, .close1:hover
+{
+    background-color: #828282;
+    border-radius: 50%;
+    color: White;
+}
+.prev-next-btn-1
+{
+    background-color: #bfbfbf;
+    height: 44px;
+    width: 50px;
+    padding-top: 8px;
+}
+.bk-color-1
+{
+    background-color: #e9e9e9 !important;
+}
+
+.footerRow
+{
+    bottom: -5px;
+    height: 0;
+    left: auto;
+    position: absolute;
+    right: auto;
+}
+.addRowColor
+{
+    border: 2px solid #2f6da6 !important;
+}
+.activeItem-1
+{
+    background-color: #84a8fd !important;
+    color: Black !important;
+}
+.ProcessClass
+{
+    color: #666666;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 13px;
+    padding-right: 3px;
+    display:inline-block;
+    width: 100%;
+}
+
+.TopUpProcessClass
+{
+    color: #666666;
+    margin: 0px;
+    font-weight: bold;
+    font-size: 12px;
+    padding-right: 3px;
+}
+.defect1
+{
+    font-size: 15px;
+}
+.color1
+{
+    font-size: 14px;
+}
+
+.EditPriceCss
+{
+   border: 1px solid #959595;
+    color: #333333;
+    font-size: 20px !important;
+    text-align: center;
+    width: 101px;
+}
+
+.PriceEdit {
+    border-radius: 3px;
+    height: 81px;
+    padding: 12px 10px;
+    width: 81px;
+}
+#btnClosePrice {
+    color:red;
+    cursor: pointer;
+    font-size: 38px;
+}
+#btnEditPrice {
+    color: green;
+    cursor: pointer;
+    font-size: 33px;
+}
+
+#divGarmentPriceEdit .mask {
+	 background: none repeat scroll 0 0 rgba(171, 188, 182, 0.83);
+	 box-shadow: 0 0 15px rgba(0, 0, 0, 0.18);
+}
+#divGarmentPriceEdit .popup {
+	box-shadow: 0 0 9px rgba(6, 1, 18, 0.32);
+}
+.Style2:hover,.DeleteRow:hover,.EditRow:hover {
+    color: red !important;
+    background-color: #e0e0e0 !important;
+}
+
+
+.divDiscountType li
+{
+    display: inline-block;
+    overflow: hidden;
+}
+.divDiscountType li label.radio, .divDiscountType li label.checkbox, .divDiscountType li label.group
+{
+    display: inline-block;
+    position: relative;
+       margin-bottom: 0px!important;
+}
+.divDiscountType li label.radio input, .divDiscountType li label.checkbox input, .divDiscountType li label.group input
+{
+    display: none;
+}
+.divDiscountType li label.radio input:checked + span, .divDiscountType li label.checkbox input:checked + span, .divDiscountType li label.group input:checked + span
+{
+    background-color: #428bca!important;
+    color: white;
+}
+.divDiscountType li label.radio > span, .divDiscountType li label.checkbox > span, .divDiscountType li label.group > span
+{
+     background: none repeat scroll 0 0 white;
+    border: 1px solid #eeeeee;
+    color: #888888;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 27px;
+    margin-bottom: 0;
+    margin-right: 1px;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-left: 1px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+     width: 34px !important;
+}
+.Notes {
+	padding:2px 3px; 
+	margin-left: 11px;
+	font-size: 13px;
+	height: 40px;
+	width: 200px;
+}
+.modal-sm {
+    width: 400px;
+}
+
+#txtDiscount,#txtDiscountAmt,#txtAdvance,#lblDisAmt {
+	font-size:16px ! important;
+}
+
+.AddressClass {
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    display: block;
+    overflow: hidden
+}
+
+#txtBookingDate {
+	border-style: none ! important;
+	background-color: transparent ! important;
+	cursor:pointer ;	
+	width: 100px! important;	
+}
+
+
+.divDiscountType li
+{
+    display: inline-block;
+    overflow: hidden;
+}
+.divDiscountType li label.radio, .divDiscountType li label.checkbox, .divDiscountType li label.group
+{
+    display: inline-block;
+    position: relative;
+       margin-bottom: 0px!important;
+}
+.divDiscountType li label.radio input, .divDiscountType li label.checkbox input, .divDiscountType li label.group input
+{
+    display: none;
+}
+.divDiscountType li label.radio input:checked + span, .divDiscountType li label.checkbox input:checked + span, .divDiscountType li label.group input:checked + span
+{
+    background-color: #74848c;
+    color: white;
+}
+.divDiscountType li label.radio > span, .divDiscountType li label.checkbox > span, .divDiscountType li label.group > span
+{
+     background: none repeat scroll 0 0 white;
+    border: 1px solid #eeeeee;
+    color: #888888;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 27px;
+    margin-bottom: 0;
+    margin-right: 1px;
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-left: 1px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 41px;
+}
+
+.divUrgent  label.radio, .divUrgent label.checkbox, .divUrgent label.group
+{
+    display: inline-block;
+    position: relative;
+       margin-bottom: 0px!important;
+}
+.divUrgent label.radio input, .divUrgent label.checkbox input, .divUrgent label.group input
+{
+    display: none;
+}
+.divUrgent label.radio input:checked + span, .divUrgent label.checkbox input:checked + span, .divUrgent label.group input:checked + span
+{
+    background-color: #428bca !important;
+    color: white;
+}
+
+.divUrgent label.radio, .divUrgent label.checkbox, .divUrgent label.group
+{
+    display: inline-block;
+    position: relative;
+       margin-bottom: 0px!important;
+}
+.divUrgent  label.radio > span, .divUrgent label.checkbox > span, .divUrgent label.group > span
+{
+     background: none repeat scroll 0 0 white;
+    border: 1px solid #cccccc;
+    color: #888888;
+    cursor: pointer;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 36px;
+    margin-bottom: 0;
+    margin-right: 8px;  
+    overflow: hidden;
+    padding-bottom: 0;
+    padding-left: 3px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 123px;
+}
+.rateClass {
+	background-color:#428bca;
+	color: #ffffff !important;
+}
+.redColor {
+	color:Red;
+}
+.disableColor {
+	color:#dbdbdb !important;
+}
+
+.ServiceLoadPopUp li
+{
+    background: none repeat scroll 0 0 white;
+    border: 1px dotted #cccccc;
+    color: #888888;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 23px;
+    margin-bottom: 0;
+    margin-right: -1px;
+    overflow: hidden;
+    padding: 3px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 25%;
+    margin-top: -1px;
+}
+
+.badge2
+{
+     background-color: #5a91b6;
+    border-radius: 10px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 12px;
+    margin-top: 4px;
+    min-width: 28px;
+    padding: 5px 8px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+ }
+ 
+ .disableBkColor {
+ background-color: #bebebe !important;	
+}
+
+.PointerCur :hover {
+	cursor: default;
+}
+
+.modal-sm-2 {
+    width: 225px;
+}
+.prev-next-btn-2
+{
+    background-color: #74848c;
+    color: White;
+   padding: 5px;
+   margin-bottom: 3px;
+}
+
+#divGarments ul li label > span.GarmentNamestyle
+{    
+ border: medium none;
+    border-radius: 0;
+    color: #000000;
+    display: inline-block;
+    height: 84%;
+    left: 2px;
+    line-height: 14px;
+    padding-top: 22px;
+    position: absolute;
+    right: 2px;
+    top: 3px;
+    white-space: normal;
+    width: 79%;
+     opacity: 0.7;
+}
+
+.listtyle {
+	font-size: 15px;
+    color:Gray;
+}
+#spnRemoveIcon:hover {
+	cursor: pointer;	
+}
+
+.ImgClass {	
+   background: #f2f4f4 none repeat scroll 0 0;
+    border: 1px solid #bac1c5;
+    color: Gray;
+    font-size: 16px;
+    font-weight: bold;
+    height: 100px;
+    margin: -4px 0 -4px -4px;
+    overflow: hidden;
+    padding: 19px 2px;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 99px;
+}
+
+.ImgClassDel {	     
+     background: #f2f4f4 none repeat scroll 0 0;
+    color: Gray;
+    font-size: 12px;
+    height: 57px;
+    text-align: center;
+}
+
+.ColWidth {
+	width: 75px;
+}
+
+.BookingBarcodeTable
+{
+    width: 100%;
+}
+
+.BookingBarcodeTable > tbody > tr
+{
+    padding: 4px;
+    border-bottom: 1px solid #d0d0d0;
+    border-left: 1px dotted transparent;
+    border-right: 1px dotted transparent;
+    border-top: 1px solid #d0d0d0;
+    cursor: pointer;
+    color: #666666;
+}
+.BookingBarcodeTable > tbody > tr > td
+{
+    line-height: 1.42857;
+    padding: 4px;
+    vertical-align: top;
+    border: none;
+    vertical-align: middle;
+}
+
+.TopUpServiceStyle {
+	margin-left: 5px; 
+	padding: 5px; 
+	border-top: 1px solid #8d99a0;
+	color:#7d7d7d;
+	font-size:12px;
+}
+
+.AddfooterDetails2
+{
+     bottom: 103px;
+    left: auto;
+    position: absolute;
+    right: auto;
+    top: auto;
+    width: 94%;
+}
+
+.btnProceed 
+{
+    font-size: 13px !important;
+    padding: 9px 17px !important;
+    text-decoration: none !important;
+    
+}
+
+.PlusMin {
+	background-color: #74848c;
+    color: White;
+    font-size: 23px;
+    font-weight: bold;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius:0px;
+}
+
+.HandPointer:hover {
+	cursor:pointer;
+}
+
+.btnVisited:focus, .btnVisited:active{
+    background-color:  #74848c;   
+    color: White;
+}   
+
+#divGarments ul li label > span.GarmentNamestyle2
+{ 
+     background: #535f64 none repeat scroll 0 0;  
+    border: medium none;
+    border-radius: 0;
+    bottom: 3px;
+    color: black;
+    display: inline-block;
+    height: 20px;
+    left: 1px;
+    line-height: 19px;
+    min-height: 19px;
+    padding-left: 1px;
+    padding-right: 1px;
+    position: absolute;
+    width: 81%;
+}
+
+
+#divGarmentsSorting {
+    background: white none repeat scroll 0 0;
+    bottom: 250px;
+    padding: 10px 0;
+    top: 130px;
+}
+#divGarmentsSorting ul {
+    height: 100%;
+    padding-left: 9px; 
+}
+#divGarmentsSorting ul li span 
+{
+     background-position: 2px 2px !important;
+    background-size: 74px 63px !important;
+    color: #333333;
+    height: 87px;
+    line-height: 146px;
+    opacity: 0.9;
+    width: 89px;
+     background-attachment: fixed;
+}
+#divGarmentsSorting ul li input:checked + span {
+    background-color: #a7b1b6 !important;
+    border: 1px solid #74848c;
+    opacity: 1;
+}
+#divGarmentsSorting ul li input + span {
+    border-color: #bbc4c8;
+    border-style: solid;
+    border-width: 2px 1px 1px 2px;
+}
+
+.disabledClass2 {
+   pointer-events: none;
+   cursor: default;
+}
+
+.BorderClass {
+	 border: 1px solid #dfdfdf !important;
+}
+
+.DisplayInline {
+	display:inline-block;
+    width: 100%;
+}
