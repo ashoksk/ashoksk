@@ -1,0 +1,227 @@
+<style>
+    .stylelink {
+        padding: 2px 20px;
+        background: transparent;
+        color: #4a5570;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .stylelink.active {
+        padding: 20px 20px;
+        /*		background: #b71c1c;*/
+        /*        background: #2874f0;*/
+        color: #fff;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        border-bottom: 3px solid #fa3757;
+    }
+    
+    .sub_menu {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        border-bottom: 2px solid transparent;
+        color: #333;
+    }
+    
+    .sub_menu.active {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #01adfb;
+    }
+    
+    #wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #101524;
+    }
+    
+    #wrapper div {
+        display: table-cell;
+        height: auto;
+    }
+    /*.main_text {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #333;
+        padding: 10px 0;
+        display: block;
+    }
+    .main_text.active {
+        color: #000;
+        font-weight: 600;
+    }
+    
+    .main_text.active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 0px auto;
+        width: 90px;
+        height: 2px;
+        background: #01adfb;
+    }*/
+    
+    @media screen and (max-width: 480px) {
+        .stylelink {
+            font-size: 12px;
+        }
+        .stylelink.active {
+            font-size: 12px;
+        }
+        .sub_menu {
+            font-size: 10px;
+        }
+        .sub_menu.active {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<div style="width:100%;height:auto;">
+    <div id="wrapper">
+        <div style="text-align:center;">
+            <a class="stylelink active" href="/countries"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">COUNTRY</span></a>
+        </div>
+        <div style="text-align:center;">
+            <a class="stylelink" href="/states"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">STATE</span></a>
+        </div>
+        <div style="text-align:center;">
+            <a class="stylelink" href="/cities"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">CITY</span></a>
+        </div>
+    </div>
+</div>
+
+<!-- Horizontal Form -->
+<div class="box box-info" style="min-height:450px;border-color:#2874f0;">
+    <div class="box-header with-border">
+        <div class="row" style="margin:0;padding:0;">
+            <div class="col-sm-7">
+                <h3 class="box-title">Country</h3></div>
+            <div class="col-sm-3" data-ng-hide="hideSearchFilter()">
+                <form role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" style="z-index:0;width:250px;" data-ng-model="searchZone">
+
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-2">
+                <a data-ng-href="/country/create" class="btn btn-primary  " role="button" data-ng-hide="hideCreateButton()">Add New </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div data-ng-hide="hideSearchFilter()">
+        <button type="button" class="btn btn-primary pull-right" style="background:#1b2136;border:none;border-radius:0px;padding:12px;color:#7582a3;">
+            <div>
+                <span>Show Entries</span>&nbsp;
+                <select ng-model="pageSize" data-placeholder="Show Entries" ng-change="pageFunction(pageSize)" style="background:#4a59f7;border-color:#4a59f7;color:#fff;padding:4px;">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
+        </button>
+    </div>
+    <div class="box-body">
+        <br/>
+
+        <form class="form-horizontal" role="form" data-ng-show="showForm()">
+            <p align="center">All <span style="color:red">*</span> fields are mandatory</p>
+            <br/>
+            <div class="row" style="margin:0;padding:0">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-4" style="font-weight:600;margin-top:7px;">Country <span style="color:red">*</span></label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" id="name" data-ng-model="zone.name" placeholder="State Name" pattern='[A-Za-z\\s]*'>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+
+            <div align="left">
+                <div>
+                    <a class="btn btn-success btn-sm" type="submit" role="button" data-ng-click="SaveZone()" data-ng-show="isCreateView()" ng-disabled="submitDisable">Save </a>
+
+                    <a class="btn btn-success btn-sm  " type="submit" role="button" data-ng-click="UpdateZone()" data-ng-hide="isCreateView()" ng-disabled="submitDisable">Update </a> &nbsp;&nbsp;
+                    
+                    <a data-ng-href="/zones" class="btn btn-danger btn-sm " role="button"> Cancel</a>
+                </div>
+            </div>
+        </form>
+
+        <div data-ng-hide="showForm()">
+            <table class="table  table-striped">
+
+                <thead>
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th>State</th>
+                        <th>State Code</th>
+                        <th style="width:100px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="country in countries | filter:searchZone |itemsPerPage:pageSize" pagination-id="zonesid">
+                        <td>{{ country.index }}</td>
+                        <td>{{country.id}} - {{country.name}}</td>
+                        <td width="20%">
+                            <a type="button" class="btn btn-info " role="button" data-ng-href="/countries/{{country.id}}">Edit</a>&nbsp;&nbsp;
+
+                            <a type="button" class="btn btn-danger " role="button" confirm-button="Delete(country.id)" message="Are you sure? you want to delete?">Delete</a>&nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div align="right">
+                <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" pagination-id="zonesid" on-page-change="PageChanged(newPageNumber, oldPageNumber)">
+                </dir-pagination-controls>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+
+    </div>
+    <!-- /.box-footer -->
+</div>
+<!-- /.box -->
+
+
+<modal2 title1="{{modalTitle}}" visible="stakeholderdataModal">
+    <p>{{message}}</p>
+</modal2>
+
+<validationmodal title1="Alert!!!" visible="showValidation">
+    {{validatestring1}}
+</validationmodal>

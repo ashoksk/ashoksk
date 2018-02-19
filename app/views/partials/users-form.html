@@ -1,0 +1,379 @@
+<style>
+	 .stylelink {
+        padding: 2px 20px;
+        background: transparent;
+        color: #4a5570;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .stylelink.active {
+        padding: 20px 20px;
+        /*		background: #b71c1c;*/
+        /*        background: #2874f0;*/
+        color: #fff;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        border-bottom: 3px solid #fa3757;
+    }
+    
+    .sub_menu {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        border-bottom: 2px solid transparent;
+        color: #333;
+    }
+    
+    .sub_menu.active {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #01adfb;
+    }
+    
+    #wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #101524;
+    }
+    
+	#wrapper div {
+		display: table-cell;
+		height: auto;
+	}
+	/*.main_text {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #333;
+        padding: 10px 0;
+        display: block;
+    }
+    .main_text.active {
+        color: #000;
+        font-weight: 600;
+    }
+    
+    .main_text.active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 0px auto;
+        width: 90px;
+        height: 2px;
+        background: #01adfb;
+    }*/
+	
+	@media screen and (max-width: 480px) {
+		.stylelink {
+			font-size: 12px;
+		}
+		.stylelink.active {
+			font-size: 12px;
+		}
+		.sub_menu {
+			font-size: 10px;
+		}
+		.sub_menu.active {
+			font-size: 10px;
+		}
+	}
+
+</style>
+
+<div style="width:100%;height:auto;background:#f8fafb;">
+	<div id="wrapper">
+		<!--<div style="text-align:center;padding: 20px 0px;">
+			<a class="stylelink" href="/co-organisation"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">Facility Manager/HDF</span></a>
+		</div>-->
+		<div style="text-align:center;">
+			<a class="stylelink" href="/mentor"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">OTHER ROLES</span></a>
+		</div>
+		<div style="text-align:center;">
+			<a class="stylelink" href="/roles"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">ROLES</span></a>
+		</div>
+		<div style="text-align:center;">
+			<a class="stylelink active" href="/users"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">USERS</span></a>
+		</div>
+		<div style="text-align:center;">
+			<a class="stylelink" href="/mentorassign"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">STORE ASSIGN</span></a>
+		</div>
+        <div style="text-align:center;">
+			<a class="stylelink" href="/welcometext"><span style="flex:1;white-space:pre;overflow: hidden;text-overflow: ellipsis;">WELCOME TEXT</span></a>
+		</div>
+	</div>
+
+</div>
+
+
+<!-- Horizontal Form -->
+<div class="box box-info" style="min-height:450px;border-color:#2874f0;">
+	<div class="box-header with-border">
+		<h3 class="box-title">{{heading}}</h3>
+	</div>
+	<!-- /.box-header -->
+	<!-- form start -->
+
+	<div class="box-body">
+		<br/>
+		<form class="form-horizontal" role="form">
+			<p align="center">All <span style="color:red">*</span> fields are mandatory</p>
+			<br/>
+			<div class="row" style="margin:0;padding:0;">
+				<div class="col-sm-6">
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:5px;">Roles <span style="color:red">*</span></label>
+						<div class="col-sm-6">
+							<select ui-select2 id="role" ng-model="user.roleId" data-placeholder="Pick a Role" style="width:100%;" ng-disabled="roleDisable">
+								<option value=""></option>
+								<option data-ng-repeat="role in roles" value="{{role.id}}">{{ role.name }}</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:5px;">User <span style="color:red">*</span></label>
+						<data-ng-switch on="user.roleId">
+							<div class="col-sm-6" data-ng-switch-when="2">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick an Depot" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="employee in employees" value="{{employee.id}}">{{ employee.salesCode|lowercase }}</option>
+								</select>
+							</div>
+                            
+                             <div class="col-sm-6" data-ng-switch-when="4">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick an Supplier" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="workshop in workshops" value="{{workshop.id}}">{{ workshop.salescode|lowercase }}</option>
+								</select>
+							</div>
+                            
+                            <div class="col-sm-6" data-ng-switch-when="5">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick an Transport" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="transport in transports" value="{{transport.id}}">{{ transport.salescode|lowercase }}</option>
+								</select>
+							</div>
+
+							<!--<div class="col-sm-6" data-ng-switch-when="3">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a SPM" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="spm in spms" value="{{spm}}">{{ spm.name|lowercase }}</option>
+								</select>
+							</div>-->
+
+							<!--<div class="col-sm-6" data-ng-switch-when="4">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a RIO" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="rio in rios" value="{{rio}}">{{ rio.name|lowercase }}</option>
+								</select>
+							</div>
+
+							<div class="col-sm-6" data-ng-switch-when="16">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a NO" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="no in nos" value="{{no}}">{{ no.name|lowercase }}</option>
+								</select>
+							</div>
+
+							<div class="col-sm-6" data-ng-switch-when="2" id="comgr">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a CO/HDF" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="comember in comembers" value="{{comember}}">{{ comember.name|lowercase }}</option>
+								</select>
+							</div>-->
+
+							<!--<div class="col-sm-6" data-ng-switch-when="6"> <!--{{user.usrName}}-->
+								<!--<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a FW" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="fieldworker in fieldworkers" value="{{fieldworker}}">{{ fieldworker.firstname | lowercase }}</option>
+								</select>
+							</div>
+
+							<div class="col-sm-6" data-ng-switch-when="15">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a CO/HDF" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="comember in comembers" value="{{comember}}">{{ comember.name|lowercase }}</option>
+								</select>
+							</div>
+
+							<div class="col-sm-6" data-ng-switch-when="17">
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick a Mentor" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="mentor in mentors" value="{{mentor}}">{{ mentor.name|lowercase }}</option>
+								</select>
+							</div>-->
+							
+							<div class="col-sm-6" data-ng-switch-default>
+								<select ui-select2 data-ng-model="user.usrName" data-placeholder="Pick an Admin" style="width:100%;" ng-disabled="userDisable">
+									<option value=""></option>
+									<option data-ng-repeat="admin in admins" value="{{admin}}">{{ admin.salesCode|lowercase }}</option>
+								</select>
+							</div>
+						</data-ng-switch>
+					</div>
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:7px;">Username <span style="color:red">*</span></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" data-ng-model="user.username" placeholder="Username" style="width:100%;" ng-disabled="usernameDisable">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:7px;">Mobile</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" data-ng-model="user.mobile" placeholder="Mobile" style="width:100%;" maxlength="10" readonly>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:7px;">Email <span style="color:red">*</span></label>
+						<div class="col-sm-6">
+							<input type="email" class="form-control" id="email" data-ng-model="user.email" placeholder="Email" style="width:100%;" readonly>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="role" class="col-sm-4" style="font-weight:600;margin-top:7px;">Password <span style="color:red">*</span></label>
+						<div class="col-sm-6">
+							<input type="password" class="form-control" id="password" data-ng-model="user.password" placeholder="Password" style="width:100%;">
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label for="zone" class="col-sm-4" style="font-weight:600;margin-top:7px;">User status</label>
+						<div class="col-sm-6">
+							<label class="radio-inline">
+								<input type="radio" data-ng-model="user.status" value="active">Active
+							</label>
+							<label class="radio-inline">
+								<input type="radio" data-ng-model="user.status" value="inactive">Inactive
+							</label>
+							<!-- <label class="radio-inline">
+                            <input type="radio" data-ng-model="user.status" value="suspend">Suspend :
+                        </label>-->
+						</div>
+					</div>
+
+
+					<!--<div class="form-group" ng-hide="hideState">
+						<label for="zone" class="col-sm-4" style="font-weight:600;margin-top:5px;">State</label>
+						<div class="col-sm-6">
+							<select ui-select2 ng-model="user.zoneId" data-placeholder="Pick a State" style="width: 100%;">
+								<option value=""></option>
+								<option data-ng-repeat="zone in zones" value="{{zone.id}}">{{ zone.name }}</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group" ng-hide="hideDistrict">
+                        <label for="sales-area" class="col-sm-4" style="font-weight:600;margin-top:5px;">District</label>
+                        <div class="col-sm-6">
+                            <select ui-select2 ng-model="user.salesAreaId" data-placeholder="Pick a District" style="width: 100%;">
+                                <option value=""></option>
+                                <option data-ng-repeat="salesArea in salesAreas" value="{{salesArea.id}}">{{ salesArea.name }}</option>
+                            </select>
+                        </div>
+                    </div>-->
+
+					<div class="form-group" ng-hide="hideState">
+						<label for="zone" class="col-sm-4" style="font-weight:600;margin-top:7px;">State</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="first-name" ng-model="statename" placeholder="State" readonly>
+						</div>
+					</div>
+
+					<div class="form-group" ng-hide="hideDistrict">
+						<label for="zone" class="col-sm-4" style="font-weight:600;margin-top:7px;">District</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" id="first-name" ng-model="districtname" placeholder="District" readonly>
+						</div>
+					</div>
+
+
+					<div class="form-group" ng-hide="hideCo">
+						<label for="distribution-area" class="col-sm-4" style="font-weight:600;margin-top:5px;">Area </label>
+						<div class="col-sm-6">
+							<!--<select ui-select2 id="partner" ng-model="user.coorgId" data-placeholder="Pick a Facility" style="width: 100%;">
+								<option value=""></option>
+								<option data-ng-repeat="partner in copartners" value="{{partner.id}}">{{ partner.firstName }}</option>
+							</select>-->
+							<input type="text" class="form-control" id="first-name" ng-model="Facilityname" placeholder="Area" readonly>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="distribution-area" class="col-sm-4" style="font-weight:600;margin-top:5px;">Language</label>
+						<div class="col-sm-6">
+							<select ui-select2 id="partner" ng-model="user.language" data-placeholder="Pick a Language" style="width: 100%;">
+								<option value=""></option>
+								<option data-ng-repeat="language in languages" value="{{language.id}}">{{ language.name }}</option>
+							</select>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<br/>
+			<div align="left">
+				<div>
+
+					<a class="btn btn-success btn-sm " type="submit" role="button" data-ng-click="Save()" data-ng-hide="Saved">Create </a>
+
+					<a class="btn btn-success btn-sm " type="submit" role="button" data-ng-click="Update()" data-ng-hide="Updated">Update </a>&nbsp;&nbsp;
+
+
+					<a data-ng-href="/users" class="btn btn-danger btn-sm " role="button">Cancel</a>
+
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<!-- /.box-body -->
+	<div class="box-footer">
+
+	</div>
+	<!-- /.box-footer -->
+</div>
+<!-- /.box -->
+
+<modal2 title1="{{modalTitle}}" visible="stakeholderdataModal">
+	<p>{{message}}</p>
+</modal2>
+
+<validationmodal title1="Alert!!!" visible="showValidation">
+	{{validatestring1}}
+</validationmodal>
+
+<validationmodal title1="Alert!!!" visible="showUniqueValidation">
+	{{validatestring2}}
+</validationmodal>

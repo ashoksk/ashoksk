@@ -1,0 +1,204 @@
+<style>
+	.stylelink {
+		padding: 3px 10px;
+		background: transparent;
+		color: #333;
+		border-radius: 50px;
+		text-decoration: none;
+		font-size: 14px;
+		display: inline-flex;
+		flex-flow: row nowrap;
+		max-width: 100%;
+	}
+	
+	.stylelink.active {
+		padding: 3px 10px;
+		background: #b71c1c;
+		color: #fff;
+		border-radius: 50px;
+		text-decoration: none;
+		font-size: 14px;
+		font-weight: 600;
+		display: inline-flex;
+		flex-flow: row nowrap;
+		max-width: 100%;
+	}
+	
+	.sub_menu {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		max-width: 100%;
+		padding: 10px 10px;
+		border-bottom: 2px solid transparent;
+		color: #333;
+	}
+	
+	.sub_menu.active {
+		display: inline-flex;
+		flex-flow: row nowrap;
+		max-width: 100%;
+		padding: 10px 10px;
+		color: #000;
+		font-weight: bold;
+		border-bottom: 2px solid #01adfb;
+	}
+	
+	#wrapper {
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+		height: auto;
+		background-color: #fff;
+	}
+	
+	#wrapper div {
+		display: table-cell;
+		height: auto;
+	}
+	
+	@media screen and (max-width: 480px) {
+		.stylelink {
+			font-size: 12px;
+		}
+		.stylelink.active {
+			font-size: 12px;
+		}
+		.sub_menu {
+			font-size: 10px;
+		}
+		.sub_menu.active {
+			font-size: 10px;
+		}
+	}
+
+</style>
+
+<!-- Horizontal Form -->
+<div class="box box-info" style="min-height:650px;border-color:#b71c1c;margin-top:5px;">
+	<div class="box-header with-border">
+		<h3 class="box-title">Import Employees </h3>
+	</div>
+	<!-- /.box-header -->
+	<!-- form start -->
+
+	<div class="box-body">
+		<div align="center">
+			<h4>XLS file should be in the following format.</h4>
+			<img src="images/xlsemployees.PNG" style="width: 100%;">
+			<br/>
+			<br/>
+			<a href="/xlssheets/xlsemployees.xlsx" target="_blank">Click here to download sample xls file</a>
+		</div>
+
+		<div>
+			<br/>
+			<p>
+				<input type="file" name="xlfile" id="xlf" ng-files="getTheFiles($files)" /> ... click here to select a file
+			</p>
+		</div>
+		<br/>
+
+		<div>
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th style="width:50px;">#</th>
+						<th>Employee Name</th>
+						<th>Employee Code</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr dir-paginate="xlsentry in xlsentries |itemsPerPage:5">
+						<td>{{ xlsentry.index+1 }}</td>
+						<td>{{ xlsentry.firstname }}</td>
+						<td>{{ xlsentry.empid }}</td>
+                        <td>{{ xlsentry.mobile }}</td>
+                        <td>{{ xlsentry.email }}</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div align="right">
+				<dir-pagination-controls max-size="5" direction-links="true" boundary-links="false">
+				</dir-pagination-controls>
+			</div>
+		</div>
+
+		<br/>
+		<br/>
+		<br/>
+
+
+		<div align="left">
+			<button ng-click="Save()" class="btn btn-success btn-sm btn-flat" ng-hide="hideSubmit">Save</button>
+			<button ng-click="Validate()" class="btn btn-success btn-sm btn-flat" ng-hide="hideValidate" ng-disabled="DisableValidate">Validate</button>
+			<a href="/employees">
+				<button class="btn btn-danger btn-sm btn-flat">Cancel</button>
+			</a>
+		</div>
+		<a download="errorlog.txt" id="downloadlink" style="display: none" align="center">Download Error Text</a>
+
+	</div>
+</div>
+
+
+<modal2 title1="Wait!!!" visible="savedataModal">
+	<p>Uploading {{xlsentries.length}} Employees</p>
+</modal2>
+
+
+<modal2 title1="{{ValidationmessageTitle}}" visible="sheetValidation">
+	<p>{{Validationmessage}}</p>
+</modal2> 
+
+<validationmodal title1="Alert!!!" visible="successValidation">
+	<p>VALIDATION SUCCEED!!! </p>
+</validationmodal>
+
+<validationmodal title1="Alert!!!" visible="showValidation">
+	VALIDATION FAILED!!! 
+</validationmodal>
+
+
+<validationmodal title1="Alert!!!" visible="xlsValidation">
+	Your xls not in specified formt!!!
+</validationmodal>
+
+<style>
+	#myProgress {
+		position: relative;
+		width: 100%;
+		height: 30px;
+		background-color: #ddd;
+	}
+	
+	#myBar {
+		position: absolute;
+		width: 10%;
+		height: 100%;
+		background-color: blue;
+	}
+	
+	#label {
+		text-align: center;
+		line-height: 30px;
+		color: white;
+	}
+
+</style>
+
+<style>
+	.progress {
+		height: 3em;
+		i {
+			line-height: 3.5em;
+		}
+	}
+	
+	.progress-bar {
+		transition: width 1s ease-in-out;
+	}
+
+</style>

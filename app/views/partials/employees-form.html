@@ -1,0 +1,409 @@
+<style>
+    .stylelink {
+        padding: 3px 10px;
+        background: transparent;
+        color: #333;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .stylelink.active {
+        padding: 3px 10px;
+        background: #b71c1c;
+        color: #fff;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .sub_menu {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        border-bottom: 2px solid transparent;
+        color: #333;
+    }
+    
+    .sub_menu.active {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #01adfb;
+    }
+    
+    #wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+    }
+    
+    #wrapper div {
+        display: table-cell;
+        height: auto;
+    }
+    /*.main_text {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #333;
+        padding: 10px 0;
+        display: block;
+    }
+    .main_text.active {
+        color: #000;
+        font-weight: 600;
+    }
+    
+    .main_text.active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 0px auto;
+        width: 90px;
+        height: 2px;
+        background: #01adfb;
+    }*/
+    
+    @media screen and (max-width: 480px) {
+        .stylelink {
+            font-size: 12px;
+        }
+        .stylelink.active {
+            font-size: 12px;
+        }
+        .sub_menu {
+            font-size: 10px;
+        }
+        .sub_menu.active {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<!-- Horizontal Form -->
+<div class="box box-info" style="min-height:450px;border-color:#2874f0;margin-top:5px;">
+    <div class="box-header with-border">
+        <h3 class="box-title">Employee Create</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+
+    <div class="box-body">
+        <br />
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active" style="cursor:pointer;"><a data-target="#tab_1" data-toggle="tab">Primary Details</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_1">
+                    <br/>
+                    <form class="form-horizontal" role="form">
+                        <p align="center">All <span style="color:red">*</span> fields are mandatory</p>
+                        <br/>
+
+                        <div class="row" style="margin:0;padding:0;">
+                            <div class="col-sm-6">
+<!--
+                                <div class="form-group">
+                                    <label for="sales-code" class="col-sm-4" style="font-weight:600;margin-top:7px;">Title <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="title" ng-model="employee.title" data-placeholder="Pick a Title" style="width:240px;">
+                                            <option value=""></option>
+                                            <option value="1">Mr</option>
+                                            <option value="2">Miss</option>
+                                            <option value="3">Mrs</option>
+                                        </select>
+                                    </div>
+                                </div>
+-->
+
+
+                                <div class="form-group">
+                                    <label for="first-name" class="col-sm-4" style="font-weight:600;margin-top:7px;">First Name <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="firstname" data-ng-model="employee.firstname" placeholder="First Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="first-name" class="col-sm-4" style="font-weight:600;margin-top:7px;">Last Name <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="lastname" data-ng-model="employee.lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="first-name" class="col-sm-4" style="font-weight:600;margin-top:7px;">Full Name </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="fullname" data-ng-model="employee.fullname" placeholder="Full Name" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="first-name" class="col-sm-4" style="font-weight:600;margin-top:7px;">Employee ID <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="empid" data-ng-model="employee.empid" placeholder="Employee ID">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">Role <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="role" ng-model="employee.role" data-placeholder="Pick a Role" style="width:240px;">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="role in roles" value="{{role.id}}">{{ role.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="col-sm-4" style="font-weight:600;margin-top:7px;">Email ID <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="email" data-ng-model="employee.email" placeholder="Email ID">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="mobile" class="col-sm-4" style="font-weight:600;margin-top:7px;">Mobile (+91) <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="mobile" data-ng-model="employee.mobile" placeholder="Mobile number" maxlength="10">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address" class="col-sm-4" style="font-weight:600;margin-top:7px;">Address <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" id="address" data-ng-model="employee.address" placeholder="Address" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="first-name" class="col-sm-4" style="font-weight:600;margin-top:7px;">Zip Code <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="zipcode" data-ng-model="employee.zipcode" placeholder="Zip Code">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="zip" class="col-sm-4" style="font-weight:600;margin-top:7px;">Start Date <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <td style="width: 100%;">
+                                            <p class="input-group" style="width: 100%;">
+                                                <input type="text" id="{{'datepickerdob' + $index}}" class="form-control" datepicker-popup="{{format}}" ng-model="employee.startdate" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" max-date="dtmax" style="outline:none;">
+                                                <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event, $index)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                </span>
+                                            </p>
+                                        </td>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="zip" class="col-sm-4" style="font-weight:600;margin-top:7px;">Birthday <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <td style="width: 100%;">
+                                            <p class="input-group" style="width: 100%;">
+                                                <input type="text" id="{{'datepickerdob' + $index}}" class="form-control" datepicker-popup="{{format}}" ng-model="employee.birthday" is-open="opened1" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" close-text="Close" max-date="dtmax" style="outline:none;">
+                                                <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open1($event, $index)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                                            </p>
+                                        </td>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">Employement Type <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="district" ng-model="employee.emptype" data-placeholder="Pick a Employement Type " style="width:240px;">
+                                            <option value=""></option>
+                                            <option value="1">Permanent</option>
+                                            <option value="2">Contract</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">Mariatal Status <span style="color:red">*</span> </label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="marital" ng-model="employee.maritalstatus" data-placeholder="Pick a Mariatal Status" style="width:240px;">
+                                            <option value=""></option>
+                                            <option value="1">Single</option>
+                                            <option value="2">Married</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">Country <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="country" ng-model="employee.country" data-placeholder="Pick a Country" style="width:240px;">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="country in countries" value="{{country.id}}">{{ country.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">State <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="state" ng-model="employee.state" data-placeholder="Pick a State" style="width:240px;">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="state in states" value="{{state.id}}">{{ state.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">City <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="city" ng-model="employee.city" data-placeholder="Pick a City" style="width:240px;">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="city in cities" value="{{city.id}}">{{ city.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="zip" class="col-sm-4" style="font-weight:600;margin-top:7px;">Work Location <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="work" data-ng-model="employee.worklocation" placeholder="Work Location">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="city" class="col-sm-4" style="font-weight:600;margin-top:7px;">Manager <span style="color:red">*</span></label>
+                                    <div class="col-sm-6">
+                                        <select ui-select2 id="manager" ng-model="employee.managerid" data-placeholder="Pick a Manager" style="width:240px;">
+                                            <option value=""></option>
+                                            <option data-ng-repeat="manager in managers" value="{{manager.id}}">{{ manager.username }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+
+
+                        <div align="left" style="padding-left:10px;">
+                            <div>
+                                <a class="btn btn-success btn-sm btn-flat" type="submit" role="button" data-ng-click="Save()" data-ng-hide="Created">Save </a>
+                                
+                                <a class="btn btn-success btn-sm btn-flat" type="submit" role="button" data-ng-click="Update()" data-ng-show="Created">Update </a>
+
+                                <a data-ng-href="/employees" class="btn btn-danger btn-sm btn-flat" type="submit" role="button">Cancel </a>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+
+            </div>
+            <!-- /.box-footer -->
+        </div>
+        <!-- /.box -->
+
+        <modal2 title1="{{modalTitle}}" visible="stakeholderdataModal">
+            <p>{{message}}</p>
+        </modal2>
+
+        <validationmodal title1="Alert!!!" visible="showValidation">
+            {{validatestring1}}
+        </validationmodal>
+
+        <validationmodal title1="Alert!!!" visible="showUniqueValidation">
+            {{validatestring2}}
+        </validationmodal>
+
+        <style>
+            rating {
+                width: 300px;
+                height: 34px;
+                background-color: #f6f3f3;
+            }
+            
+            .rating label {
+                text-indent: -100px;
+                width: 40px !important;
+                height: 30px;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            
+            .label {
+                float: left;
+                padding-top: 3px;
+            }
+            
+            input[type="radio"] {
+                padding-right: 4px;
+                position: absolute;
+                left: 340px;
+                margin-top: 10px;
+            }
+            
+            input[type="radio"],
+            .rating label.stars {
+                float: right;
+                line-height: 30px;
+                height: 30px;
+            }
+            
+            span + input[type=radio] + label,
+            legend + input[type=radio] + label {
+                clear: right;
+                margin-right: 80px;
+                counter-reset: checkbox;
+            }
+            
+            .rating input[type="radio"]:required + label:after {
+                content: '';
+                position: absolute;
+                left: 340px;
+                min-height: 10px;
+                margin-top: -36px;
+                text-align: right;
+                background: #6cbf00;
+                padding: 10px 10px;
+                display: block;
+                width: 50px;
+            }
+            
+            .rating label.stars {
+                background: transparent url('http://www.findsourcecode.com/wp-content/uploads/2014/04/star_off.png') no-repeat center center;
+            }
+            
+            .rating label.stars:hover ~ label.stars,
+            .rating label.stars:hover,
+            .rating input[type=radio][name=stars]:checked ~ label.stars {
+                background-image: url('http://www.findsourcecode.com/wp-content/uploads/2014/04/star.png');
+                counter-increment: checkbox;
+            }
+            
+            .rating input[type=radio][name=stars]:required + label.stars:after {
+                content: counter(checkbox) " stars!";
+            }
+        </style>

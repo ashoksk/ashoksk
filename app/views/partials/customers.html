@@ -1,0 +1,181 @@
+<style>
+    .stylelink {
+        padding: 3px 10px;
+        background: transparent;
+        color: #333;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .stylelink.active {
+        padding: 3px 10px;
+        background: #b71c1c;
+        color: #fff;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .sub_menu {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        border-bottom: 2px solid transparent;
+        color: #333;
+    }
+    
+    .sub_menu.active {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #01adfb;
+    }
+    
+    #wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+    }
+    
+    #wrapper div {
+        display: table-cell;
+        height: auto;
+    }
+    /*.main_text {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #333;
+        padding: 10px 0;
+        display: block;
+    }
+    .main_text.active {
+        color: #000;
+        font-weight: 600;
+    }
+    
+    .main_text.active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 0px auto;
+        width: 90px;
+        height: 2px;
+        background: #01adfb;
+    }*/
+    
+    @media screen and (max-width: 480px) {
+        .stylelink {
+            font-size: 12px;
+        }
+        .stylelink.active {
+            font-size: 12px;
+        }
+        .sub_menu {
+            font-size: 10px;
+        }
+        .sub_menu.active {
+            font-size: 10px;
+        }
+    }
+    
+    .dropdown-menu {
+        max-height: 300px;
+        width: 90%;
+        overflow: auto;
+    }
+
+</style>
+
+<!-- Horizontal Form -->
+
+<div class="box box-info" style="min-height:580px;border-color:#2874f0;margin-top:5px;">
+    <div class="box-body">
+    <div class="row" style="padding:25px;margin:0px;">
+<div class="col-sm-6" style="padding-left:0px;">
+        <img src="images/employee-management-system.jpg" style="width:100%;">
+        </div>   
+        <div class="col-sm-6">
+        <h2 >Welcome, {{userName}}</h2>
+<!--            <p style="line-height: 1.7;font-size:14px;">Lorem Ipsum is simply dummy text of the printing and typesetting Industry. Lorem Ipsum has been the industry's standard dummy text ever since of 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting remaining essentially unchanged. It was popularised in the 1960s with the release of Lateraset sheets containing Lorem Ipsum passages. and more recently with desktop publishing sofware like Aldus PageMaker including version of Lorem Ipsum.   </p>-->
+        
+        </div>
+        </div>
+    
+    </div>
+<!--
+	<div align="center">
+		<img src="images/petromon.png" style="width:50%;height:auto;" />
+	</div>
+-->
+</div>
+<!--
+
+<div class="box box-info" style="min-height:580px;border-color:#2874f0;margin-top:5px;">
+    <div class="box-header with-border">
+    </div>
+-->
+    <!-- /.box-header -->
+    <!-- form start -->
+<!--
+    <div class="box-body">
+        <div class="row">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="input-group">
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                    <input type="text" ng-model="selected" value="{{state.firstname}}" typeahead="state.firstname as state.firstname for state in employeelists | filter:$viewValue" placeholder="Search Employee" class="form-control">
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div align="right">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-3" style="padding-right:7px;">
+                <a class="btn btn-primary btn-block   active" data-ng-href="/customers/create" style="background:#4996ab;"><img src="images/user.png" style="width:30px; height:30px;">&nbsp;&nbsp;<span class="textBold">Add New Employee</span></a>
+            </div>
+
+            <div class="col-sm-3"  style="padding-left:7px;">
+                <a id="a1" href="Masters/Default.aspx" onclick="return checkAccessRights('Daily Dashboard')" class="btn btn-primary btn-block   active" style="background:#4996ab;"><img src="images/dashboard220.png" style="width:30px; height:30px;">&nbsp;&nbsp;<span class="textBold">Daily Dashboard</span></a>
+            </div>
+        </div>
+        <br/>
+
+    </div>
+-->
+<!--</div>-->
+<!-- /.box -->
+
+
+<modal2 title1="{{modalTitle}}" visible="stakeholderdataModal">
+    <p>{{message}}</p>
+</modal2>
+
+<validationmodal title1="Alert!!!" visible="showValidation">
+    {{validatestring1}}
+</validationmodal>
+

@@ -1,0 +1,161 @@
+<style>
+    body {
+        background: #d2d6de;
+    }
+    
+    @font-face {
+        font-family: 'Neuropol';
+        src: url('styles/admin/bootstrap/neuropol/neuropol.ttf') format('truetype');
+        src: local('Neuropol'), url('styles/admin/bootstrap/neuropol/neuropol.ttf') format('truetype');
+        /* Safari, Android, iOS */
+    }
+    
+    .neuropol {
+        font-family: 'Neuropol';
+    }
+    /*.tooltip {
+        left: 180px !important;
+        display: block !important;
+    }*/
+    /*body {
+        background-image: url("images/Digi_Mkt.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        height: 100%;
+    }*/
+    
+    .login-box-body {
+        position: relative;
+    }
+    
+    .login-logo-image {
+        width: 100px;
+        border: 3px solid white;
+        border-radius: 100%;
+        background: #ccc;
+        height: 100px;
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        text-align: center;
+        background-image: url('images/Digi_Mkt.jpg');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+    }
+    
+    .stylelink {
+        padding: 10px 20px;
+        background: #fcc930;
+        color: #fff;
+        /*        border-radius: 50px;*/
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        /*        border-color: #2f313a;*/
+    }
+    
+    .stylelink2 {
+        padding: 10px 20px;
+        background: #fcc930;
+        color: #fff;
+        /*        border-radius: 50px;*/
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        /*        border-color: #2f313a;*/
+    }
+</style>
+<div class="box box-info" style="border-radius:0;border:0;min-height:675px;margin-bottom:0px;">
+    <div class="row">
+        <div class="col-sm-8">
+            <img src="images/employee-management-system.jpg" style="width:925px;height: 675px;">
+            <div style="position:relative;text-align:center;margin-top:-20px;color:#ffffff;bottom:50px;">
+<!--            <strong>Powered by  </strong> <a href="/" target="_blank">ConverBiz Technologies Pvt Ltd.</a>-->
+                </div>
+        </div>
+        <div class="col-sm-4" style="padding-bottom:2.2em">
+            <br>
+            <br>
+<!--            <img src="images/ingenx.png" style="width: 75%;margin-left: -2.4em;">-->
+            <div class="alert alert-{{notification.type}}" style="width:250px;display: none;position:absolute;top:10px;left:0;right:0;margin-left:auto;margin-right:auto;padding:10px;" role="alert" data-notification="{{errormsg}}">
+                {{notification.message}}&nbsp;&nbsp;
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            </div>
+            <div class="login-box" style="margin-top:0px;">
+                <!---<div class="login-logo">
+                    <br/> --->
+                    <!--                    <img src="images/id-logo.png">-->
+                <!---</div>
+                <br/>   --->
+                <div class="login-box-body">
+                    <br/>
+                    <br/>
+                    <p class="login-box-msg" style="font-size:25px;text-align:left;padding-left:0px;color:#4854e9;">Click here to login.</p>
+                    <form role="form" name="form" data-ng-submit="login()">
+                        <div class="form-group has-feedback" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                            <label style="color:#c0c1d0;">User Name</label>
+                            <span class="form-control" style="border:none;border-bottom:1px solid #ccc;padding-left:0px;">
+                <input type="text" placeholder="username" name="username" id="username" style="border:none;outline:none" ng-model="user.username" required>
+               </span>
+                            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                        </div>
+                        <div class="form-group has-feedback" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                            <label style="color:#c0c1d0;">Password</label>
+                            <span class="form-control" style="border:none;border-bottom:1px solid #ccc;padding-left:0px;"> 
+                <input type="password" placeholder="************" name="password" id="password" style="border:none;outline:none" ng-model="user.password" required></span>
+                            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                        </div>
+<!--
+                        <br>
+                        <select class="form-control" ng-model="domain">
+                            <option value="" disabled selected>Domain</option>
+                            <option value="All">domain 1</option>
+                        </select>
+-->
+
+                        <!--<select class="form-control" id="sel1" placeholder="Filter" style="border:0;width:105px;font-weight: 600;" ng-model="statusDate">
+                            <option value="" disabled selected>Show</option>
+                            <option value="All">All</option>
+                            <option ng-repeat="status in statuses" value="{{status.id}}">{{status.name}}</option>
+
+                        </select>-->
+
+<!--                        <br>-->
+                        <br>
+                        <p style="color:red;text-align:center;">{{ errormsg }} </p>
+                        <loading align="center"></loading>
+                        <br/>
+                        <div class="row" style="padding:5%;">
+                            <button class="stylelink" style="border:none;outline:none;padding-left:42%;">LOGIN</button>
+                        </div>
+                    </form>
+                    <a href="">Forgot password</a>
+                    <br>
+
+                </div>
+            </div>
+
+        </div>
+        <!--
+        <br/>
+        <br/>
+        <footer class="box-footer pull-right" style="padding:10px 16px;background:#4855e8;margin-right:15px;margin-bottom:-1px:border-radius:0px;">
+    <button  type="button" class="btn " >SIGN IN</button>
+            <h2 style="margin:7px;font-size:16px;color:#fff;">SIGN IN</h2>
+    </footer>
+-->
+    </div>
+
+</div>

@@ -1,0 +1,230 @@
+<style>
+    .stylelink {
+        padding: 2px 20px;
+        background: transparent;
+        color: #4a5570;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 14px;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+    }
+    
+    .stylelink.active {
+        padding: 20px 20px;
+        /*		background: #b71c1c;*/
+        /*        background: #2874f0;*/
+        color: #fff;
+        /*		border-radius: 50px;*/
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        border-bottom: 3px solid #fa3757;
+    }
+    
+    .sub_menu {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        border-bottom: 2px solid transparent;
+        color: #333;
+    }
+    
+    .sub_menu.active {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 10px 10px;
+        color: #000;
+        font-weight: bold;
+        border-bottom: 2px solid #01adfb;
+    }
+    
+    #wrapper {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        height: auto;
+        background-color: #101524;
+    }
+    
+    #wrapper div {
+        display: table-cell;
+        height: auto;
+    }
+    /*.main_text {
+        width: 100%;
+        height: auto;
+        position: relative;
+        text-align: center;
+        color: #333;
+        padding: 10px 0;
+        display: block;
+    }
+    .main_text.active {
+        color: #000;
+        font-weight: 600;
+    }
+    
+    .main_text.active:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin: 0px auto;
+        width: 90px;
+        height: 2px;
+        background: #01adfb;
+    }*/
+    
+    @media screen and (max-width: 480px) {
+        .stylelink {
+            font-size: 12px;
+        }
+        .stylelink.active {
+            font-size: 12px;
+        }
+        .sub_menu {
+            font-size: 10px;
+        }
+        .sub_menu.active {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<!-- Horizontal Form -->
+<div class="box box-info" style="min-height:650px;border-color:#2874f0;">
+    <div class="box-header with-border">
+        <div class="row" style="margin:0;padding:0;">
+            <div class="col-sm-5">
+                <h3 class="box-title">Employees List</h3>
+            </div>
+            <div class="col-sm-2">
+<!--                <a data-ng-href="" class="btn btn-success" role="button" ng-click="exportData()">Export Data</a>-->
+            </div>
+            <div class="col-sm-3" data-ng-hide="hideSearchFilter()">
+                <form role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search " style="z-index:0;width:250px" ng-model="searchEmp">
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-sm-2">
+                <a data-ng-href="/employees/create" class="btn btn-primary  " role="button" data-ng-hide="hideCreateButton(); hideSearchFilter()">New Employee </a>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div data-ng-hide="hideSearchFilter()">
+        <button type="button" class="btn btn-primary pull-right" style="background:#1b2136;border:none;border-radius:0px;padding:12px;color:#7582a3;">
+            <div>
+                <span>Show Entries</span>
+                <select ng-model="pageSize" data-placeholder="Show Entries" ng-change="pageFunction(pageSize)" style="background:#4a59f7;border-color:#4a59f7;color:#fff;padding:4px;">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
+        </button>
+    </div>
+
+    <div class="box-body">
+        <br />
+        <br/>
+        <div data-ng-hide="showForm()">
+            <form class="form-horizontal" role="form">
+                <div class="row" style="margin:0;padding:0;">
+                    <div class="col-sm-6">
+                        <label for="zone" class="col-sm-4" style="font-weight:600; margin-top: 5px;padding-left:0px;">Country </label>
+                        <div class="col-sm-6">
+                            <select ui-select2 id="country" ng-model="countryId" data-placeholder="Pick a Country" style="width: 180px;">
+                                <option value=""></option>
+                                <option data-ng-repeat="country in countries" value="{{country.id}}">{{ country.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="salesarea" class="col-sm-4" style="font-weight:600; margin-top: 5px;">State</label>
+                        <div class="col-sm-6">
+                            <select ui-select2 id="state" ng-model="stateId" data-placeholder="Pick a State" style="width: 180px;">
+                                <option value=""></option>
+                                <option data-ng-repeat="state in states" value="{{state.id}}">{{ state.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row" style="margin:0;padding:0;">
+                    <div class="col-sm-6">
+                        <label for="zone" class="col-sm-4" style="font-weight:600; margin-top: 5px;padding-left:0px;">City</label>
+                        <div class="col-sm-6">
+                            <select ui-select2 id="country" ng-model="cityId" data-placeholder="Pick a City" style="width: 180px;">
+                                <option value=""></option>
+                                <option data-ng-repeat="city in cities" value="{{city.id}}">{{ city.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br />
+
+            <table class="table  table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th>Employee Name</th>
+                        <th>Employee ID</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th style="width:100px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="employee in employees| filter: searchEmp | itemsPerPage:pageSize" pagination-id="table1">
+                        <td>{{ employee.index }}</td>
+                        <td>{{ employee.firstname }}</td>
+                        <td>{{ employee.empid }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.mobile }}</td>
+                        <td width="20%">
+                            <a type="button" class="btn btn-info" role="button" data-ng-href="/employees/{{employee.id}}"> Edit</a>&nbsp;&nbsp;
+                            <a type="button" class="btn btn-danger" role="button" confirm-button="Delete(employee.id)" message="Are you sure? you want to delete?">Delete</a>&nbsp;
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div align="right">
+                <dir-pagination-controls max-size="5" direction-links="true" boundary-links="false" pagination-id="table1" on-page-change="PageChanged(newPageNumber, oldPageNumber)">
+                </dir-pagination-controls>
+            </div>
+            <br/>
+            <div ng-show="!employees.length" style="margin:0 auto;text-align:center;padding-top: 5%;">
+                <span style="font-size:18px;font-weight:bold;font-family:Georgia, Serif;">Please select an options</span>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+
+    </div>
+    <!-- /.box-footer -->
+</div>
+<!-- /.box -->
